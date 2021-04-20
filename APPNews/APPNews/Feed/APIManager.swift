@@ -14,8 +14,11 @@ struct News: Decodable {
     let description: String?
     let url: String?
     let publishedAt: String?
-    
+    let urlToImage: String?
     let source: source?
+    let content: String?
+    let author: String?
+    
 }
 struct NewsList: Decodable{
     let articles: [News]

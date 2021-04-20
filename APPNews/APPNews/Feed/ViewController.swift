@@ -7,13 +7,14 @@
 //
 
 import UIKit
-
+ 
 class ViewController: UIViewController {
     @IBOutlet weak var searchView: RoundedView!
     @IBOutlet weak var categoriesView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var spinner: Spinner!
     var controller: FeedDataSourceDelegateController?
     var request = APIManager()
     
@@ -22,7 +23,7 @@ class ViewController: UIViewController {
         controller = FeedDataSourceDelegateController(view: self)
         feedTableView.delegate = controller
         feedTableView.dataSource = controller
-        
+        spinner.hidesWhenStopped = true
         setupUI()
        getData(apiUrl: "")
         // Do any additional setup after loading the view.
@@ -32,6 +33,8 @@ class ViewController: UIViewController {
         if apiUrl != "" {
             url = apiUrl
         }
+        spinner.isHidden = false
+        spinner.startAnimating()
         self.request.getNews(url: url, completionHandler: {[weak self] news, error in
             self?.loadData(news: news)
         })
@@ -40,6 +43,13 @@ class ViewController: UIViewController {
     func loadData(news: [News]){
         controller?.news = news
         feedTableView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+            self.spinner.stopAnimating()
+            self.spinner.isHidden = true
+        }
+        
+        
     }
     @IBAction func indexChanged(_ sender: Any) {
         switch  segmentedControl.selectedSegmentIndex {
@@ -60,11 +70,11 @@ class ViewController: UIViewController {
             //colors black: 1C1C1C, White: FFFFFF, gray: 504E54
         
               //topView.backgroundColor = UIColor(hexString: "FFFFFF")
-              searchView.backgroundColor = UIColor(hexString: "FFFFFF")
+              searchView.backgroundColor = UIColor(hexString: "1C1C1C")
               searchView.layer.borderWidth = 1
         
-              searchView.layer.borderColor = UIColor(hexString: "1C1C1C").cgColor
-               categoriesView.roundCorners(.allCorners, radius: 15)
+              searchView.layer.borderColor = UIColor(hexString: "FFFFFF").cgColor
+              categoriesView.roundCorners(.allCorners, radius: 10)
               
               
            self.view.backgroundColor = UIColor(hexString: "1C1C1C")

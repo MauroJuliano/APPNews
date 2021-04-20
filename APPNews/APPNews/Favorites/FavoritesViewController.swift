@@ -7,24 +7,36 @@
 //
 
 import UIKit
-
+import RealmSwift
 class FavoritesViewController: UIViewController {
 
+    @IBOutlet weak var archiveTableView: UITableView!
+    var newsArchive = [Archive]()
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor(hexString: "1C1C1C")
+        
+        let realmData = realm.objects(Archive.self)
+        newsArchive.append(contentsOf: realmData)
+        
+        archiveTableView.delegate = self
+        archiveTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newsArchive.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "archiveCell", for: indexPath) as! NewsArchiveTableViewCell
+        cell.setup(news: newsArchive[indexPath.row])
+        return cell
+    }
+    
+    
 }

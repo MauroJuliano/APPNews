@@ -14,17 +14,86 @@
                     <view key="view" contentMode="scaleToFill" id="Ilp-HJ-bqH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kEJ-sy-Nkm">
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="archiveCell" rowHeight="80" id="orz-8p-4lt" customClass="NewsArchiveTableViewCell" customModule="APPNews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orz-8p-4lt" id="JKY-BI-LfO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF2-gi-Dab">
+                                                    <rect key="frame" x="129" y="16" width="255" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZ9-ie-iGA">
+                                                    <rect key="frame" x="19" y="10" width="102" height="60"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-sa-H0f">
+                                                            <rect key="frame" x="0.0" y="0.0" width="102" height="60"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="KBE-sa-H0f" secondAttribute="trailing" id="1si-d1-Fgi"/>
+                                                        <constraint firstAttribute="bottom" secondItem="KBE-sa-H0f" secondAttribute="bottom" id="6Fb-da-vjO"/>
+                                                        <constraint firstItem="KBE-sa-H0f" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="leading" id="hF2-rr-3cv"/>
+                                                        <constraint firstAttribute="width" constant="102" id="jQV-Am-SEy"/>
+                                                        <constraint firstItem="KBE-sa-H0f" firstAttribute="top" secondItem="RZ9-ie-iGA" secondAttribute="top" id="w1g-Un-1BV"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IF2-gi-Dab" secondAttribute="bottom" constant="5" id="0es-vG-kfV"/>
+                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="top" constant="10" id="O8K-KW-tun"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IF2-gi-Dab" secondAttribute="trailing" constant="10" id="RRz-i7-mtD"/>
+                                                <constraint firstAttribute="bottom" secondItem="RZ9-ie-iGA" secondAttribute="bottom" constant="10" id="eZj-EE-pNO"/>
+                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="trailing" constant="8" id="heL-IT-emW"/>
+                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="leading" secondItem="JKY-BI-LfO" secondAttribute="leading" constant="19" id="jzU-u6-xM2"/>
+                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="topMargin" constant="5" id="zgb-tt-DBQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsImage" destination="KBE-sa-H0f" id="6ZD-cb-QmF"/>
+                                            <outlet property="titleLabel" destination="IF2-gi-Dab" id="eIL-jZ-KbS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archives" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1D-tw-dyH">
+                                <rect key="frame" x="20" y="56" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W1D-tw-dyH" firstAttribute="leading" secondItem="QQE-dA-JrT" secondAttribute="leading" constant="20" id="30W-q8-Vdr"/>
+                            <constraint firstItem="W1D-tw-dyH" firstAttribute="top" secondItem="QQE-dA-JrT" secondAttribute="top" constant="12" id="9ld-gH-TKv"/>
+                            <constraint firstItem="QQE-dA-JrT" firstAttribute="trailing" secondItem="W1D-tw-dyH" secondAttribute="trailing" constant="20" id="kba-hW-xnz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QQE-dA-JrT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" selectedImage="star.fill" id="xRh-De-8bS">
+                    <tabBarItem key="tabBarItem" title="Saves" image="star.fill" catalog="system" selectedImage="star.fill" id="xRh-De-8bS">
                         <color key="badgeColor" red="0.74679331760000001" green="0.61501502969999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="archiveTableView" destination="kEJ-sy-Nkm" id="ASK-3i-Ayh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q20-JU-Weu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="94"/>
+            <point key="canvasLocation" x="82.608695652173921" y="93.75"/>
         </scene>
     </scenes>
     <resources>
