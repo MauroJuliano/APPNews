@@ -16,6 +16,8 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
     
     let newsToArchive = Archive()
     var savedNews = [Archive]()
+    var filtered = [News]()
+    
     let realm = try! Realm()
     
     init(view: ViewController){
@@ -29,12 +31,22 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if filtered.count > 0 {
+            return filtered.count
+        }
         return news.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedTableViewCell
-        cell.setup(news: news[indexPath.row])
+        
+        if filtered.count > 0 {
+            let filteredPath = filtered[indexPath.row]
+            cell.setup(news: filteredPath)
+        }else{
+             cell.setup(news: news[indexPath.row])
+        }
+       
         
         cell.favoritesTap = {
            
@@ -72,6 +84,18 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
         }
         }
     }
+    func filterArray(searchIn: String){
+        let options: String.CompareOptions = [.caseInsensitive, .diacriticInsensitive]
+        let searchText = searchIn.folding(options: options, locale: nil)
+        
+        filtered = news.filter({ (newsToFilter) -> Bool in
+            guard !searchText.isEmpty else { return true}
+            let newsToCompare = newsToFilter.title!.folding(options: options, locale: nil)
+            return newsToCompare.contains(searchText)
+        })
+        view?.feedTableView.reloadData()
+    }
+    
     func archiveItens(news: News?){
         if let saveNews = news {
             
@@ -80,12 +104,11 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
             newsToArchive.resume = saveNews.description ?? ""
             newsToArchive.url = saveNews.url ?? ""
             newsToArchive.publishedAt = saveNews.publishedAt ?? ""
-            newsToArchive.urlToImage = saveNews.urlToImage ?? ""
+            newsToArchive.urlToImage = saveNews.urlToImage ?? "https://images.unsplash.com/photo-1529243856184-fd5465488984?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1369&q=80"
             newsToArchive.source = saveNews.source?.name ?? ""
             newsToArchive.content = saveNews.content ?? ""
           
-            
-            
+
             try! realm.write {
                   realm.add(newsToArchive)
             }
@@ -93,6 +116,16 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
         }
         
     }
-    
-    
+}
+extension FeedDataSourceDelegateController: UISearchBarDelegate {
+   
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count >= 2 {
+            filterArray(searchIn: searchText)
+        }
+        if searchText == "" {
+            self.filtered.removeAll()
+            view?.feedTableView.reloadData()
+        }
+    }
 }

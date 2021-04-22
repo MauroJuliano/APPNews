@@ -15,12 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var spinner: Spinner!
-    var controller: FeedDataSourceDelegateController?
-    var request = APIManager()
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchButton: UIButton!
     
+    var controller: FeedDataSourceDelegateController?
+    @IBOutlet weak var leftConstraints: NSLayoutConstraint!
+    var request = APIManager()
+    private var shouldCollapse = true
+    
+    var buttonSearch: Bool {
+        return shouldCollapse ? true : false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        searchBar.isHidden = true
         controller = FeedDataSourceDelegateController(view: self)
+        searchBar.delegate = controller
         feedTableView.delegate = controller
         feedTableView.dataSource = controller
         spinner.hidesWhenStopped = true
@@ -31,6 +43,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupUI()
         getData(apiUrl: "")
+        segmentedControl.selectedSegmentIndex = 0
         getSavesNews()
     }
     func getSavesNews(){
@@ -75,6 +88,7 @@ class ViewController: UIViewController {
             break
         }
     }
+    
     func setupUI(){
               segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
               
@@ -86,9 +100,30 @@ class ViewController: UIViewController {
               searchView.layer.borderColor = UIColor(hexString: "FFFFFF").cgColor
               categoriesView.roundCorners(.allCorners, radius: 10)
               
-              
+              searchBar.barTintColor = UIColor(hexString: "1C1C1C")
               self.view.backgroundColor = UIColor(hexString: "1C1C1C")
               categoriesView.backgroundColor = UIColor(hexString: "504E54")
+    }
+    
+    @IBAction func filterButton(_ sender: Any) {
+        if shouldCollapse {
+            searchBar.isHidden = false
+            searchButton.setImage(nil, for: .normal)
+            animateView(isCollapse: false, widthConstraint: 20)
+        }else{
+            
+            searchBar.isHidden = true
+            searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+            animateView(isCollapse: true, widthConstraint: 208)
+        }
+    }
+    
+    private func animateView(isCollapse: Bool, widthConstraint: Double){
+        shouldCollapse = isCollapse
+        leftConstraints.constant = CGFloat(widthConstraint)
+        UIView.animate(withDuration: 1){
+            self.view.layoutIfNeeded()
+        }
     }
 }
 extension UIView {

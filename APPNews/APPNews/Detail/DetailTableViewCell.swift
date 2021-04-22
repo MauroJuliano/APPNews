@@ -34,6 +34,10 @@ class DetailTableViewCell: UITableViewCell {
         if let image = news.urlToImage{
             let url = URL(string: image)
             newsImage.kf.setImage(with: url)
+        }else {
+           
+            let url = URL(string: "https://images.unsplash.com/photo-1529243856184-fd5465488984?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1369&q=80")
+            newsImage.kf.setImage(with: url)
         }
         
     }

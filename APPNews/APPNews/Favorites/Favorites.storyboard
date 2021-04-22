@@ -20,42 +20,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="archiveCell" rowHeight="80" id="orz-8p-4lt" customClass="NewsArchiveTableViewCell" customModule="APPNews" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="archiveCell" rowHeight="111" id="orz-8p-4lt" customClass="NewsArchiveTableViewCell" customModule="APPNews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orz-8p-4lt" id="JKY-BI-LfO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF2-gi-Dab">
-                                                    <rect key="frame" x="131" y="16" width="253" height="48"/>
+                                                    <rect key="frame" x="151" y="16" width="233" height="79"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZ9-ie-iGA">
-                                                    <rect key="frame" x="19" y="10" width="102" height="60"/>
+                                                    <rect key="frame" x="19" y="10" width="122" height="90"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-sa-H0f">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102" height="60"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-sa-H0f">
+                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="90"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="102" id="86J-sO-lD8"/>
-                                                        <constraint firstAttribute="height" constant="60" id="xF9-pA-RKs"/>
+                                                        <constraint firstItem="KBE-sa-H0f" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="leading" id="BIL-pD-uFy"/>
+                                                        <constraint firstAttribute="width" constant="122" id="Ie4-XQ-RnY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="KBE-sa-H0f" secondAttribute="bottom" id="KnY-iI-K96"/>
+                                                        <constraint firstAttribute="height" constant="90" id="VnU-5J-6o5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="KBE-sa-H0f" secondAttribute="trailing" id="YXw-DI-7Dp"/>
+                                                        <constraint firstItem="KBE-sa-H0f" firstAttribute="top" secondItem="RZ9-ie-iGA" secondAttribute="top" id="wPN-li-9wT"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="topMargin" constant="5" id="B1l-JS-0n7"/>
-                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="trailing" constant="10" id="RZ8-HR-yL9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="IF2-gi-Dab" secondAttribute="trailing" constant="10" id="Vqc-Kb-a2b"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="IF2-gi-Dab" secondAttribute="bottom" constant="5" id="bU2-8w-kGJ"/>
-                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="leading" secondItem="JKY-BI-LfO" secondAttribute="leading" constant="19" id="tF6-Ge-kPT"/>
-                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="top" constant="10" id="uIY-n9-SVD"/>
+                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="topMargin" constant="5" id="5hd-lV-nzm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IF2-gi-Dab" secondAttribute="bottom" constant="5" id="Kmq-fH-rKz"/>
+                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="top" constant="10" id="cto-AH-xGt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IF2-gi-Dab" secondAttribute="trailing" constant="10" id="eIt-mL-jRc"/>
+                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="trailing" constant="10" id="fbr-ro-1W9"/>
+                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="leading" secondItem="JKY-BI-LfO" secondAttribute="leading" constant="19" id="hoI-rM-VbJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -80,7 +83,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QQE-dA-JrT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Saves" image="star.fill" catalog="system" selectedImage="star.fill" id="xRh-De-8bS">
+                    <tabBarItem key="tabBarItem" title="Archives" image="star" catalog="system" selectedImage="archivebox" id="xRh-De-8bS">
                         <color key="badgeColor" red="0.74679331760000001" green="0.61501502969999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -94,6 +97,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="archivebox" catalog="system" width="128" height="106"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>

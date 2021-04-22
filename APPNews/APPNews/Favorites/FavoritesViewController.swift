@@ -66,10 +66,10 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let complete = UIContextualAction.init(style: .normal
         , title: "Unarchive") { (action, view, completion) in
-      
+            self.deleteFavorite(title: self.newsArchive[indexPath.row].title)
             self.newsArchive.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            self.deleteFavorite(title: self.newsArchive[indexPath.row].title)
+            
             completion(true)
         }
         

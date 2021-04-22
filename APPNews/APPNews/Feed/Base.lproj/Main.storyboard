@@ -24,10 +24,21 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etF-kX-KQS" customClass="RoundedView" customModule="APPNews" customModuleProvider="target">
                                             <rect key="frame" x="344" y="30" width="50" height="50"/>
+                                            <subviews>
+                                                <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="yWd-mm-s4v">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </searchBar>
+                                            </subviews>
                                             <color key="backgroundColor" red="1" green="0.58362318469999996" blue="0.71920002080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="9EP-Rp-aoh"/>
-                                                <constraint firstAttribute="height" constant="50" id="Rfs-aL-gGQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="yWd-mm-s4v" secondAttribute="bottom" id="5ck-yY-k23"/>
+                                                <constraint firstItem="yWd-mm-s4v" firstAttribute="top" secondItem="etF-kX-KQS" secondAttribute="top" id="90K-ia-ewW"/>
+                                                <constraint firstItem="yWd-mm-s4v" firstAttribute="leading" secondItem="etF-kX-KQS" secondAttribute="leading" id="PiJ-Nq-f6l"/>
+                                                <constraint firstAttribute="height" constant="50" id="TqN-y8-3Mf"/>
+                                                <constraint firstAttribute="trailing" secondItem="yWd-mm-s4v" secondAttribute="trailing" id="cK5-hO-jGw"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -38,8 +49,8 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="what happens" translatesAutoresizingMaskIntoConstraints="NO" id="Xi1-Qf-4HQ">
                                             <rect key="frame" x="20" y="20" width="116" height="70"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="70" id="g2i-2T-tng"/>
-                                                <constraint firstAttribute="width" constant="116" id="tCz-6W-APH"/>
+                                                <constraint firstAttribute="width" constant="116" id="qll-mD-XcU"/>
+                                                <constraint firstAttribute="height" constant="70" id="sFx-xX-kkW"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aza-be-Z6G">
@@ -50,18 +61,21 @@
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="magnifyingglass" catalog="system"/>
+                                            <connections>
+                                                <action selector="filterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dL7-2q-yjA"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-o3-7Yp">
-                                            <rect key="frame" x="20" y="120" width="374" height="53"/>
+                                            <rect key="frame" x="20" y="120" width="374" height="50"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cte-Xd-e6f">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EBg-90-DMN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GEI-hf-b5Q">
-                                                                <rect key="frame" x="4" y="4" width="366" height="46"/>
+                                                                <rect key="frame" x="4" y="4" width="366" height="43"/>
                                                                 <segments>
                                                                     <segment title="Recent"/>
                                                                     <segment title="Health"/>
@@ -94,25 +108,26 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="cte-Xd-e6f" secondAttribute="trailing" id="4q5-pV-aIn"/>
-                                                <constraint firstAttribute="bottom" secondItem="cte-Xd-e6f" secondAttribute="bottom" id="8Gg-Cq-99V"/>
-                                                <constraint firstItem="cte-Xd-e6f" firstAttribute="top" secondItem="4TU-o3-7Yp" secondAttribute="top" id="NDg-1c-w7n"/>
-                                                <constraint firstItem="cte-Xd-e6f" firstAttribute="leading" secondItem="4TU-o3-7Yp" secondAttribute="leading" id="s3p-wG-DBJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="cte-Xd-e6f" secondAttribute="trailing" id="0LS-GF-4bi"/>
+                                                <constraint firstItem="cte-Xd-e6f" firstAttribute="leading" secondItem="4TU-o3-7Yp" secondAttribute="leading" id="1Sb-dq-sGi"/>
+                                                <constraint firstAttribute="bottom" secondItem="cte-Xd-e6f" secondAttribute="bottom" id="BmG-UO-NUK"/>
+                                                <constraint firstItem="cte-Xd-e6f" firstAttribute="top" secondItem="4TU-o3-7Yp" secondAttribute="top" id="udd-hU-94t"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="4TU-o3-7Yp" secondAttribute="bottom" constant="9" id="8Ix-78-HLg"/>
-                                        <constraint firstItem="4TU-o3-7Yp" firstAttribute="top" secondItem="Xi1-Qf-4HQ" secondAttribute="bottom" constant="30" id="9VS-FN-5g5"/>
-                                        <constraint firstItem="etF-kX-KQS" firstAttribute="top" secondItem="jW7-ET-ZDE" secondAttribute="top" constant="30" id="F8l-7O-MuE"/>
-                                        <constraint firstItem="4TU-o3-7Yp" firstAttribute="leading" secondItem="jW7-ET-ZDE" secondAttribute="leading" constant="20" id="HDE-35-Pa2"/>
+                                        <constraint firstItem="4TU-o3-7Yp" firstAttribute="top" secondItem="Xi1-Qf-4HQ" secondAttribute="bottom" constant="30" id="GZl-X9-KMm"/>
+                                        <constraint firstAttribute="trailing" secondItem="etF-kX-KQS" secondAttribute="trailing" constant="20" id="JuN-Hb-GgD"/>
+                                        <constraint firstItem="etF-kX-KQS" firstAttribute="top" secondItem="jW7-ET-ZDE" secondAttribute="top" constant="30" id="QUn-YB-kKt"/>
+                                        <constraint firstItem="Xi1-Qf-4HQ" firstAttribute="top" secondItem="jW7-ET-ZDE" secondAttribute="top" constant="20" id="TgJ-5T-UPH"/>
+                                        <constraint firstItem="4TU-o3-7Yp" firstAttribute="leading" secondItem="jW7-ET-ZDE" secondAttribute="leading" constant="20" id="V0X-0i-ld3"/>
+                                        <constraint firstItem="Xi1-Qf-4HQ" firstAttribute="leading" secondItem="jW7-ET-ZDE" secondAttribute="leading" constant="20" id="Yg0-6z-UXH"/>
                                         <constraint firstItem="aza-be-Z6G" firstAttribute="top" secondItem="jW7-ET-ZDE" secondAttribute="top" constant="30" id="Ygc-Zx-xPe"/>
-                                        <constraint firstItem="Xi1-Qf-4HQ" firstAttribute="top" secondItem="jW7-ET-ZDE" secondAttribute="top" constant="20" id="Zzm-Fc-BhV"/>
+                                        <constraint firstAttribute="bottom" secondItem="4TU-o3-7Yp" secondAttribute="bottom" constant="12" id="ZlJ-Cs-PAQ"/>
                                         <constraint firstAttribute="trailing" secondItem="aza-be-Z6G" secondAttribute="trailing" constant="20" id="eqO-hN-lqF"/>
-                                        <constraint firstAttribute="trailing" secondItem="4TU-o3-7Yp" secondAttribute="trailing" constant="20" id="prb-zN-f72"/>
-                                        <constraint firstAttribute="trailing" secondItem="etF-kX-KQS" secondAttribute="trailing" constant="20" id="qCL-Dp-B1c"/>
-                                        <constraint firstItem="Xi1-Qf-4HQ" firstAttribute="leading" secondItem="jW7-ET-ZDE" secondAttribute="leading" constant="20" id="w4D-RR-60H"/>
+                                        <constraint firstAttribute="trailing" secondItem="4TU-o3-7Yp" secondAttribute="trailing" constant="20" id="wLV-TG-r51"/>
+                                        <constraint firstItem="etF-kX-KQS" firstAttribute="leading" secondItem="Xi1-Qf-4HQ" secondAttribute="trailing" constant="208" id="xKm-XP-2oE"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -244,12 +259,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="News" image="square.and.pencil" catalog="system" id="tph-Vx-NUb">
+                    <tabBarItem key="tabBarItem" title="News" image="square.grid.2x2" catalog="system" id="tph-Vx-NUb">
                         <color key="badgeColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="categoriesView" destination="4TU-o3-7Yp" id="Xxq-fP-oyn"/>
                         <outlet property="feedTableView" destination="aBH-gP-kPa" id="eq2-Fa-GLm"/>
+                        <outlet property="leftConstraints" destination="xKm-XP-2oE" id="DlM-py-mP7"/>
+                        <outlet property="searchBar" destination="yWd-mm-s4v" id="5rj-Px-Hay"/>
+                        <outlet property="searchButton" destination="aza-be-Z6G" id="fr0-0v-Hdc"/>
                         <outlet property="searchView" destination="etF-kX-KQS" id="yBY-eN-TBR"/>
                         <outlet property="segmentedControl" destination="GEI-hf-b5Q" id="Hfl-cY-BqC"/>
                         <outlet property="spinner" destination="cSH-9p-8Bt" id="YRw-AT-5Gv"/>
@@ -265,13 +283,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DIT-VN-zGG" customClass="CBFlashyTabBarController" customModule="CBFlashyTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xHI-HU-Db8">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="xHI-HU-Db8" customClass="CBFlashyTabBar" customModule="CBFlashyTabBarController">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.58362318469999996" blue="0.71920002080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.74679331760000001" green="0.61501502969999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="n0R-lF-7Gb"/>
@@ -295,7 +313,7 @@
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="what happens" width="447" height="339"/>
     </resources>
