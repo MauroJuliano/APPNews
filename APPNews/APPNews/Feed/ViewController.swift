@@ -24,9 +24,21 @@ class ViewController: UIViewController {
         feedTableView.delegate = controller
         feedTableView.dataSource = controller
         spinner.hidesWhenStopped = true
-        setupUI()
-       getData(apiUrl: "")
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupUI()
+        getData(apiUrl: "")
+        getSavesNews()
+    }
+    func getSavesNews(){
+        controller?.findItem(completionHandler: { success, _ in
+            if success {
+                self.feedTableView.reloadData()
+            }
+        })
     }
     func getData(apiUrl: String){
         var url = "https://newsapi.org/v2/top-headlines?country=ca&apiKey=aef42a10dc9d4ea0b9b8467ab623851a"
@@ -68,8 +80,6 @@ class ViewController: UIViewController {
               
               segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
             //colors black: 1C1C1C, White: FFFFFF, gray: 504E54
-        
-              //topView.backgroundColor = UIColor(hexString: "FFFFFF")
               searchView.backgroundColor = UIColor(hexString: "1C1C1C")
               searchView.layer.borderWidth = 1
         
@@ -77,7 +87,7 @@ class ViewController: UIViewController {
               categoriesView.roundCorners(.allCorners, radius: 10)
               
               
-           self.view.backgroundColor = UIColor(hexString: "1C1C1C")
+              self.view.backgroundColor = UIColor(hexString: "1C1C1C")
               categoriesView.backgroundColor = UIColor(hexString: "504E54")
     }
 }

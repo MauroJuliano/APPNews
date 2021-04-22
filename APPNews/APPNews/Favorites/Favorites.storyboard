@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF2-gi-Dab">
-                                                    <rect key="frame" x="129" y="16" width="255" height="48"/>
+                                                    <rect key="frame" x="131" y="16" width="253" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -36,29 +36,26 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZ9-ie-iGA">
                                                     <rect key="frame" x="19" y="10" width="102" height="60"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-sa-H0f">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-sa-H0f">
                                                             <rect key="frame" x="0.0" y="0.0" width="102" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="KBE-sa-H0f" secondAttribute="trailing" id="1si-d1-Fgi"/>
-                                                        <constraint firstAttribute="bottom" secondItem="KBE-sa-H0f" secondAttribute="bottom" id="6Fb-da-vjO"/>
-                                                        <constraint firstItem="KBE-sa-H0f" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="leading" id="hF2-rr-3cv"/>
-                                                        <constraint firstAttribute="width" constant="102" id="jQV-Am-SEy"/>
-                                                        <constraint firstItem="KBE-sa-H0f" firstAttribute="top" secondItem="RZ9-ie-iGA" secondAttribute="top" id="w1g-Un-1BV"/>
+                                                        <constraint firstAttribute="width" constant="102" id="86J-sO-lD8"/>
+                                                        <constraint firstAttribute="height" constant="60" id="xF9-pA-RKs"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="IF2-gi-Dab" secondAttribute="bottom" constant="5" id="0es-vG-kfV"/>
-                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="top" constant="10" id="O8K-KW-tun"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="IF2-gi-Dab" secondAttribute="trailing" constant="10" id="RRz-i7-mtD"/>
-                                                <constraint firstAttribute="bottom" secondItem="RZ9-ie-iGA" secondAttribute="bottom" constant="10" id="eZj-EE-pNO"/>
-                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="trailing" constant="8" id="heL-IT-emW"/>
-                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="leading" secondItem="JKY-BI-LfO" secondAttribute="leading" constant="19" id="jzU-u6-xM2"/>
-                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="topMargin" constant="5" id="zgb-tt-DBQ"/>
+                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="topMargin" constant="5" id="B1l-JS-0n7"/>
+                                                <constraint firstItem="IF2-gi-Dab" firstAttribute="leading" secondItem="RZ9-ie-iGA" secondAttribute="trailing" constant="10" id="RZ8-HR-yL9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IF2-gi-Dab" secondAttribute="trailing" constant="10" id="Vqc-Kb-a2b"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IF2-gi-Dab" secondAttribute="bottom" constant="5" id="bU2-8w-kGJ"/>
+                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="leading" secondItem="JKY-BI-LfO" secondAttribute="leading" constant="19" id="tF6-Ge-kPT"/>
+                                                <constraint firstItem="RZ9-ie-iGA" firstAttribute="top" secondItem="JKY-BI-LfO" secondAttribute="top" constant="10" id="uIY-n9-SVD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

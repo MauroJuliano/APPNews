@@ -15,6 +15,7 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
     var news = [News]()
     
     let newsToArchive = Archive()
+    var savedNews = [Archive]()
     let realm = try! Realm()
     
     init(view: ViewController){
@@ -34,31 +35,42 @@ class FeedDataSourceDelegateController: NSObject, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedTableViewCell
         cell.setup(news: news[indexPath.row])
+        
         cell.favoritesTap = {
-            self.archiveItens(news: self.news[indexPath.row])
+           
+            if cell.favoritesButton.image(for: .normal)?.pngData() == UIImage(systemName: "star")?.pngData() {
+               self.archiveItens(news: self.news[indexPath.row])
+                cell.favoritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            }else{
+                cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal)
+                self.deleteFavorite(title: self.news[indexPath.row].title ?? "")
+            }
         }
+        
+        if savedNews.contains(where: {$0.title == news[indexPath.row].title}) {
+            cell.favoritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }else{
+             cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        
         return cell
     }
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let complete = UIContextualAction.init(style: .normal
-        , title: "Archive") { (action, view, completion) in
-            self.findItem()
-            completion(true)
-            
-        }
-        let action = UISwipeActionsConfiguration.init(actions: [complete])
-        action.performsFirstActionWithFullSwipe = true
-        return action
+
+    func findItem( completionHandler: @escaping (_ result: Bool, _ error: Error? ) -> Void){
+            savedNews.removeAll()
+            let realmData = realm.objects(Archive.self)
+            savedNews.append(contentsOf: realmData)
+            completionHandler(true, nil)
+        
     }
     
-    func findItem(){
-        if (realm != nil){
-                
-                  let realmData = realm.objects(Archive.self)
-                  print(realmData)
-                
-                
-              }
+    func deleteFavorite(title: String){
+        let predicate = NSPredicate(format: "title = %@", title)
+        if let realmData = realm.objects(Archive.self).filter(predicate).first {
+        try! self.realm.write {
+            self.realm.delete(realmData)
+        }
+        }
     }
     func archiveItens(news: News?){
         if let saveNews = news {

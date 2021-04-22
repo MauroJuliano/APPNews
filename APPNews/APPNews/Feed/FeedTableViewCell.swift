@@ -11,12 +11,12 @@ import Kingfisher
 
 class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cardView: RoundedView!
-    @IBOutlet weak var cardBackground: RoundedView!
     @IBOutlet weak var newsImageView: UIImageView!
-    @IBOutlet weak var cardDetail: RoundedView!
+    @IBOutlet weak var saveView: RoundedView!
+    @IBOutlet weak var favoritesButton: UIButton!
+    
+    var favorites: Bool?
     
     var favoritesTap :  (() -> ()) = {}
     
@@ -36,17 +36,15 @@ class FeedTableViewCell: UITableViewCell {
     
     func setup(news: News){
         titleLabel.text = news.title
-        // nameLabel.text = news.source?.name
-       // descriptionLabel.text = news.description
+        
         contentView.backgroundColor = UIColor(hexString: "1C1C1C")
+         saveView.backgroundColor = UIColor(hexString: "1C1C1C")
         cardView.backgroundColor = UIColor(hexString: "404040")
-        //cardBackground.backgroundColor = UIColor(patternImage: UIImage(named: "cardBack")!)
         
         if let newsUrl = news.urlToImage {
             let url = URL(string: newsUrl)
             newsImageView.kf.setImage(with: url)
         }
-        
        
     }
 

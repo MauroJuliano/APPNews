@@ -28,7 +28,6 @@ class NewsArchiveTableViewCell: UITableViewCell {
     func setup(news: Archive){
         titleLabel.text = news.title
         contentView.backgroundColor = UIColor(hexString: "1C1C1C")
-       // sourceLabel.text = news.source
         
         if news.urlToImage != "" {
             let url = URL(string: news.urlToImage)

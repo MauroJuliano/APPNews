@@ -155,7 +155,7 @@
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="25"/>
+                                                                    <real key="value" value="15"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
@@ -166,7 +166,7 @@
                                                                 <constraint firstAttribute="height" constant="50" id="4Vc-q2-0wo"/>
                                                                 <constraint firstAttribute="width" constant="50" id="q8z-KW-zNX"/>
                                                             </constraints>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" image="star" catalog="system"/>
                                                             <connections>
                                                                 <action selector="favoritesButton:" destination="s3J-dX-bbz" eventType="touchUpInside" id="dSh-j1-9fD"/>
@@ -208,7 +208,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cardView" destination="deA-Me-VJL" id="vjX-Ta-JM0"/>
+                                            <outlet property="favoritesButton" destination="XMP-DI-Ao1" id="ddt-fT-QN2"/>
                                             <outlet property="newsImageView" destination="x55-Z5-4Jl" id="TT9-Bs-Jrt"/>
+                                            <outlet property="saveView" destination="BRg-9q-BCN" id="jBH-fh-kg5"/>
                                             <outlet property="titleLabel" destination="R4t-9T-BLf" id="3P6-Bd-hpy"/>
                                         </connections>
                                     </tableViewCell>
