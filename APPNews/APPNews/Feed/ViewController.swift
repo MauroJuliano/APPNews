@@ -113,6 +113,7 @@ class ViewController: UIViewController {
         }else{
             
             searchBar.isHidden = true
+            controller?.resetTable()
             searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
             animateView(isCollapse: true, widthConstraint: 208)
         }

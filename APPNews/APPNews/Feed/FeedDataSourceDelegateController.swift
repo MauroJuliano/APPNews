@@ -123,9 +123,10 @@ extension FeedDataSourceDelegateController: UISearchBarDelegate {
         if searchText.count >= 2 {
             filterArray(searchIn: searchText)
         }
-        if searchText == "" {
-            self.filtered.removeAll()
-            view?.feedTableView.reloadData()
-        }
+        
+    }
+    func resetTable(){
+        self.filtered.removeAll()
+        view?.feedTableView.reloadData()
     }
 }
